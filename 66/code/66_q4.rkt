@@ -44,3 +44,11 @@
           (cons x updated)
           updated)))
   my-insert)
+
+;; Read the three inputs in order and print the recursively transformed list.
+(define (print-insert-result)
+  (let* ([x (read)]
+         [lst (read)]
+         [n (read)])
+    (display (insert-if-short x lst n))
+    (newline)))
