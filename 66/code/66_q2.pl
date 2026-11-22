@@ -47,3 +47,15 @@ expression_precedence('+', 1).
 expression_precedence('-', 1).
 expression_precedence('*', 2).
 expression_precedence('/', 2).
+
+% generate_equation(+List, -Equation) holds when Equation joins two expressions
+% that use List's numbers in order and evaluate to the same integer.
+generate_equation(List, Equation) :-
+    LeftNumbers = [_|_],
+    RightNumbers = [_|_],
+    append(LeftNumbers, RightNumbers, List),
+    expression(LeftNumbers, Left, Value),
+    expression(RightNumbers, Right, Value),
+    format_expression(Left, LeftString),
+    format_expression(Right, RightString),
+    format(string(Equation), '~s=~s', [LeftString, RightString]).
