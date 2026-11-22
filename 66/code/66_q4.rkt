@@ -37,3 +37,20 @@
     (if short?
         (cons x updated)
         updated)))
+
+;; Return a function that inserts x where the predicate accepts a list's length.
+(define (make-inserter x len-ok?)
+  ;; Measure this list before recursing into its elements. An empty list has
+  ;; no elements to update and is eligible when len-ok? accepts 0.
+  (define (my-insert lst)
+    (let* ([insert? (len-ok? (my-length lst))]
+           [updated
+            (my-map (lambda (element)
+                      (if (or (null? element) (pair? element))
+                          (my-insert element)
+                          element))
+                    lst)])
+      (if insert?
+          (cons x updated)
+          updated)))
+  my-insert)
