@@ -59,3 +59,9 @@ generate_equation(List, Equation) :-
     format_expression(Left, LeftString),
     format_expression(Right, RightString),
     format(string(Equation), '~s=~s', [LeftString, RightString]).
+
+% all_equations(+List, -Equations) holds when Equations is the sorted list of
+% all distinct valid equation strings for List.
+all_equations(List, Equations) :-
+    findall(Equation, generate_equation(List, Equation), Generated),
+    sort(Generated, Equations).
