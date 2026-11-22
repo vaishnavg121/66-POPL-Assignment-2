@@ -45,3 +45,20 @@
   (newline)
   (display (my-reverse (my-postorder-reversed tree '()) '()))
   (newline))
+
+;; An empty tree gives (0 0) and a leaf gives (1 1). For any other node,
+;; visit each subtree once, left first, then combine their heights and counts.
+(define (my-height-and-leaves tree)
+  (cond
+    [(null? tree) '(0 0)]
+    [(and (null? (cadr tree)) (null? (caddr tree))) '(1 1)]
+    [else
+     (let* ([left (my-height-and-leaves (cadr tree))]
+            [right (my-height-and-leaves (caddr tree))])
+       (list (+ 1 (max (car left) (car right)))
+             (+ (cadr left) (cadr right))))]))
+
+;; Print the recursively computed height and leaf count as one list.
+(define (print-height-and-leaves tree)
+  (display (my-height-and-leaves tree))
+  (newline))
