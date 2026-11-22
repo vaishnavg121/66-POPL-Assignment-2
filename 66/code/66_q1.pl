@@ -1,3 +1,5 @@
+:- use_module(library(lists), [member/2, permutation/2]).
+
 % clue(+N, +Solution) holds when clue N is true in the given ground Solution.
 
 % The friend who prefers the AI project does not work in research and is not Dana.
@@ -43,3 +45,18 @@ clue(7, Solution) :-
 clue(8, Solution) :-
     member(p(_, research, Lang, data), Solution),
     Lang \== javascript.
+
+% solution_for_clues(+Active, -Solution) holds when Solution is a bijective
+% assignment satisfying every clue in Active.
+solution_for_clues(Active, Solution) :-
+    Solution = [p('Alex', AlexDept, AlexLang, AlexProject),
+                p('Ben', BenDept, BenLang, BenProject),
+                p('Carla', CarlaDept, CarlaLang, CarlaProject),
+                p('Dana', DanaDept, DanaLang, DanaProject)],
+    permutation([research, development, design, testing],
+                [AlexDept, BenDept, CarlaDept, DanaDept]),
+    permutation([python, java, 'c++', javascript],
+                [AlexLang, BenLang, CarlaLang, DanaLang]),
+    permutation(['AI', web, embedded, data],
+                [AlexProject, BenProject, CarlaProject, DanaProject]),
+    forall(member(N, Active), clue(N, Solution)).
