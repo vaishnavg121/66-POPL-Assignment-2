@@ -65,3 +65,9 @@ generate_equation(List, Equation) :-
 all_equations(List, Equations) :-
     findall(Equation, generate_equation(List, Equation), Generated),
     sort(Generated, Equations).
+
+% count_equations(+List, -N) holds when N is the number of distinct valid
+% equations for List.
+count_equations(List, N) :-
+    all_equations(List, Equations),
+    length(Equations, N).
