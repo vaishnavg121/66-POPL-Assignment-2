@@ -70,3 +70,9 @@ solution_for_clues(Active, Solution) :-
 count_solutions(Active, N) :-
     findall(Solution, solution_for_clues(Active, Solution), Solutions),
     length(Solutions, N).
+
+% main/0 prints one assignment satisfying clues 1 through 9 in friend order.
+main :-
+    once(solution_for_clues([1,2,3,4,5,6,7,8,9], Solution)),
+    forall(member(p(Name, Dept, Lang, Project), Solution),
+           format('~a = [~a, ~a, ~a]~n', [Name, Dept, Lang, Project])).
