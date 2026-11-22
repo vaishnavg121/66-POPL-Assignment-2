@@ -1,0 +1,5 @@
+handout/
+compiled/
+*.swp
+.DS_Store
+__pycache__/
