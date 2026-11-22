@@ -13,6 +13,9 @@ Group ID: 66
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── test.yml
 ├── 66/
 │   ├── code/
 │   │   ├── 66_q1.pl
@@ -20,6 +23,7 @@ Group ID: 66
 │   │   ├── 66_q3.rkt
 │   │   └── 66_q4.rkt
 │   ├── tests/
+│   │   ├── run_all.sh
 │   │   ├── test_p1.pl
 │   │   ├── test_p2.pl
 │   │   ├── test_s1.rkt

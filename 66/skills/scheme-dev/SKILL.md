@@ -46,7 +46,7 @@ In `66/tests/`, use a test-only harness to load and call the unexported solution
                 "()\n"))
 ```
 
-Run `raco test "66/tests/<test-file>.rkt"` with the test file's name. For S2's `print-insert-result`, use `with-input-from-string` in the harness to supply `x`, `lst`, and `n` in that order.
+Run the repository's suites with `racket 66/tests/test_s1.rkt` and `racket 66/tests/test_s2.rkt`. To run a `module+ test` harness like the example, use `raco test "66/tests/<test-file>.rkt"`. For S2's `print-insert-result`, supply `x`, `lst`, and `n` in order with `with-input-from-string`.
 
 ## Self-review before answering
 

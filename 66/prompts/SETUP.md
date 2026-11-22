@@ -72,3 +72,11 @@ Add .github/workflows/test.yml that installs SWI-Prolog 9.x and Racket 8.x on ub
 ```
 
 Result: Added push-triggered CI and the missing test runner. YAML and Bash checks passed, both version checks rejected incorrect majors, and the runner passed all 81 local test cases.
+
+## Prompt 7 — Final repository compliance review
+
+```text
+Do a final compliance check of the whole repository against Section 4 (Deliverables) and the ground rules of handout/assignment.pdf, without changing files unless you find a defect. Check: the layout 66/code, tests, skills, prompts and P1_REPORT.md; file names 66_q1.pl to 66_q4.rkt; both SKILL.md files have valid YAML front matter and the required sections; every prompts file contains only requests that cover one unit each; one test file per problem; run_all.sh passes; and no stray files. Output a pass/fail table. Log this request in SETUP.md.
+```
+
+Result: Verified the Section 4 layout, file names, skill front matter and sections, prompt scope, test files, report counts, and absence of stray files. Fixed the README tree and the Scheme skill's test instructions. All four solutions loaded silently and all 81 test cases passed.
