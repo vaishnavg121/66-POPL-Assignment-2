@@ -41,7 +41,6 @@ Group ID: 66
 │   │   └── S2.md
 │   └── P1_REPORT.md
 ├── .gitignore
-├── AGENTS.md
 └── README.md
 ```
 
