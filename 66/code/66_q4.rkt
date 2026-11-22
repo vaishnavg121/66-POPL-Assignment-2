@@ -23,3 +23,17 @@
         (my-reverse mapped-reversed '())
         (my-collect (cdr remaining)
                     (cons (f (car remaining)) mapped-reversed)))))
+
+;; Decide from the original length, then process each sublist recursively.
+;; An empty list has no elements to process and still follows the length rule.
+(define (insert-if-short x lst n)
+  (let* ([short? (< (my-length lst) n)]
+         [updated
+          (my-map (lambda (element)
+                    (if (or (null? element) (pair? element))
+                        (insert-if-short x element n)
+                        element))
+                  lst)])
+    (if short?
+        (cons x updated)
+        updated)))
