@@ -60,3 +60,9 @@ solution_for_clues(Active, Solution) :-
     permutation(['AI', web, embedded, data],
                 [AlexProject, BenProject, CarlaProject, DanaProject]),
     forall(member(N, Active), clue(N, Solution)).
+
+% count_solutions(+Active, -N) holds when N is the number of assignments
+% satisfying every clue in Active.
+count_solutions(Active, N) :-
+    findall(Solution, solution_for_clues(Active, Solution), Solutions),
+    length(Solutions, N).
