@@ -33,3 +33,18 @@ Keep it under 80 lines.
 ```
 
 Result: Added the 51-line Prolog skill. Front matter validation and smoke tests for both grader commands and the plunit command passed on SWI-Prolog 9.2.9.
+
+## Prompt 3 — Scheme skill
+
+```text
+Write 66/skills/scheme-dev/SKILL.md, the Scheme skill file required by Section 2 of the handout. Start with YAML front matter containing name: scheme-dev and a one-sentence description. The body must cover:\
+\- Language and version: Racket 8.x, every solution file starts with #lang racket/base and contains only definitions (no top-level calls, nothing printed on load).\
+\- The exact whitelist of allowed built-ins from the handout's Scheme rules (read only for S2), and the explicit blacklist (set! and relatives, vectors, hash tables, strings, do/for loops, length, append, reverse, map, filter, member, memq, list-ref, list-tail, and also displayln, equal?, zero?, provide, require).\
+\- Conventions: kebab-case names, own helpers prefixed my-, a comment per function giving its recursive reading, all state passed through arguments, tail recursion where natural.\
+\- How to run and test: racket \<file> must print nothing; how the Racket test files in 66/tests/ load a solution and call its functions.\
+\- A self-review checklist (whitelist scan, output exactly one list per line ending in newline, empty-input cases, left-before-right visiting order, original-length semantics, depth 100 and width 10,000 inputs).\
+\- Known AI failure modes in Scheme (sneaking in forbidden built-ins, quadratic append-based accumulation, measuring length after insertion, skipping the top-level or empty lists, printing elements instead of a list).\
+Keep it under 80 lines.
+```
+
+Result: Added the 66-line Scheme skill. Front matter and whitelist checks passed. Racket 8.18 smoke tests verified silent loading and confirmed that the example harness passes with the expected output and fails when the newline is missing.
