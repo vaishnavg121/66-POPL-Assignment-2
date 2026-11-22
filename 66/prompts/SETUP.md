@@ -19,3 +19,17 @@ Do not write any solution code in this step. Then apply rules 5 and 6 to this re
 ```
 
 Result: Created the group 66 repository skeleton. Verified all 12 setup files, the verbatim request log, and all five ignore patterns.
+
+## Prompt 2 — Prolog skill
+
+```text
+Write 66/skills/prolog-dev/SKILL.md, the Prolog skill file required by Section 2 of the handout. Start with YAML front matter containing name: prolog-dev and a one-sentence description. The body must cover:\
+\- Language and version: SWI-Prolog 9.x; allowed libraries lists, apply, yall, aggregate only; no assert/retract, b_setval/nb_setval, initialization directives or halt/0.\
+\- Coding conventions: predicate naming, a header comment per predicate giving its mode (+/-) and a one-sentence declarative reading, one clause per numbered clue.\
+\- How to run and test: the grader commands (swipl -q -f \<file> -g main -t halt and swipl -q -f \<file> -g "\<goal>" -t halt) and how to run the plunit test files in 66/tests/.\
+\- A self-review checklist the assistant must apply before answering (names/arities, output format, strings vs atoms, termination on empty and singleton inputs, no hard-coded answers, no stray output).\
+\- Known AI failure modes in Prolog (negation on unbound variables, floating-point division, missing exactness checks on nested division, duplicate solutions, wrong parenthesisation of same-precedence right operands, printing atoms instead of strings, assuming uniqueness without counting).\
+Keep it under 80 lines.
+```
+
+Result: Added the 51-line Prolog skill. Front matter validation and smoke tests for both grader commands and the plunit command passed on SWI-Prolog 9.2.9.
