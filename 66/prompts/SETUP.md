@@ -64,3 +64,11 @@ Also update the README layout tree to show the actual files (including 66/P1_REP
 ```
 
 Result: Updated the README tree to include the actual files, including 66/P1_REPORT.md, and deleted both placeholders. Verified that all 19 documented files and seven directories match the repository.
+
+## Prompt 6 — Add the test workflow
+
+```text
+Add .github/workflows/test.yml that installs SWI-Prolog 9.x and Racket 8.x on ubuntu-latest, checks the major versions, and runs 66/tests/run_all.sh on every push. Log this request in SETUP.md.
+```
+
+Result: Added push-triggered CI and the missing test runner. YAML and Bash checks passed, both version checks rejected incorrect majors, and the runner passed all 81 local test cases.

@@ -1,0 +1,38 @@
+name: Test
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install SWI-Prolog and Racket
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends swi-prolog-nox racket
+
+      - name: Check interpreter versions
+        shell: bash
+        run: |
+          prolog_version=$(swipl --version)
+          racket_version=$(racket --version)
+          printf '%s\n' "$prolog_version" "$racket_version"
+
+          if [[ ! $prolog_version =~ ^SWI-Prolog[[:space:]]version[[:space:]]9[.] ]]; then
+            echo "Expected SWI-Prolog 9.x." >&2
+            exit 1
+          fi
+          if [[ ! $racket_version =~ ^Welcome[[:space:]]to[[:space:]]Racket[[:space:]]v8[.] ]]; then
+            echo "Expected Racket 8.x." >&2
+            exit 1
+          fi
+
+      - name: Run assignment tests
+        run: bash 66/tests/run_all.sh
