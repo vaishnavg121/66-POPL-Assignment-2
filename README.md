@@ -15,16 +15,27 @@ Group ID: 66
 .
 ├── 66/
 │   ├── code/
+│   │   ├── 66_q1.pl
+│   │   ├── 66_q2.pl
+│   │   ├── 66_q3.rkt
+│   │   └── 66_q4.rkt
 │   ├── tests/
+│   │   ├── test_p1.pl
+│   │   ├── test_p2.pl
+│   │   ├── test_s1.rkt
+│   │   └── test_s2.rkt
 │   ├── skills/
 │   │   ├── prolog-dev/
+│   │   │   └── SKILL.md
 │   │   └── scheme-dev/
-│   └── prompts/
-│       ├── SETUP.md
-│       ├── P1.md
-│       ├── P2.md
-│       ├── S1.md
-│       └── S2.md
+│   │       └── SKILL.md
+│   ├── prompts/
+│   │   ├── SETUP.md
+│   │   ├── P1.md
+│   │   ├── P2.md
+│   │   ├── S1.md
+│   │   └── S2.md
+│   └── P1_REPORT.md
 ├── .gitignore
 ├── AGENTS.md
 └── README.md
