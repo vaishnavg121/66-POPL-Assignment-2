@@ -19,3 +19,29 @@
 (define (print-inorder tree)
   (display (my-reverse (my-inorder-reversed tree '()) '()))
   (newline))
+
+;; An empty tree leaves the accumulator unchanged. A node adds its own value
+;; before visiting the left subtree, then passes the result to the right subtree.
+(define (my-preorder-reversed tree values-reversed)
+  (if (null? tree)
+      values-reversed
+      (let ([after-left (my-preorder-reversed (cadr tree)
+                                             (cons (car tree) values-reversed))])
+        (my-preorder-reversed (caddr tree) after-left))))
+
+;; An empty tree leaves the accumulator unchanged. A node visits the left
+;; and right subtrees in order before adding its own value.
+(define (my-postorder-reversed tree values-reversed)
+  (if (null? tree)
+      values-reversed
+      (let* ([after-left (my-postorder-reversed (cadr tree) values-reversed)]
+             [after-right (my-postorder-reversed (caddr tree) after-left)])
+        (cons (car tree) after-right))))
+
+;; Print the recursively collected inorder, preorder, and postorder lists.
+(define (print-all-traversals tree)
+  (print-inorder tree)
+  (display (my-reverse (my-preorder-reversed tree '()) '()))
+  (newline)
+  (display (my-reverse (my-postorder-reversed tree '()) '()))
+  (newline))
