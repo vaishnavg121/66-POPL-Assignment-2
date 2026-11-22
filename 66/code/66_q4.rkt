@@ -24,19 +24,9 @@
         (my-collect (cdr remaining)
                     (cons (f (car remaining)) mapped-reversed)))))
 
-;; Decide from the original length, then process each sublist recursively.
-;; An empty list has no elements to process and still follows the length rule.
+;; Use the recursive inserter to prepend x to each list shorter than n.
 (define (insert-if-short x lst n)
-  (let* ([short? (< (my-length lst) n)]
-         [updated
-          (my-map (lambda (element)
-                    (if (or (null? element) (pair? element))
-                        (insert-if-short x element n)
-                        element))
-                  lst)])
-    (if short?
-        (cons x updated)
-        updated)))
+  ((make-inserter x (lambda (size) (< size n))) lst))
 
 ;; Return a function that inserts x where the predicate accepts a list's length.
 (define (make-inserter x len-ok?)
