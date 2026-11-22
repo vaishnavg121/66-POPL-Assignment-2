@@ -46,6 +46,10 @@ clue(8, Solution) :-
     member(p(_, research, Lang, data), Solution),
     Lang \== javascript.
 
+% CLUE 9: The friend working in the testing department prefers the AI project.
+clue(9, Solution) :-
+    member(p(_, testing, _, 'AI'), Solution).
+
 % solution_for_clues(+Active, -Solution) holds when Solution is a bijective
 % assignment satisfying every clue in Active.
 solution_for_clues(Active, Solution) :-
