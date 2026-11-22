@@ -80,3 +80,11 @@ Do a final compliance check of the whole repository against Section 4 (Deliverab
 ```
 
 Result: Verified the Section 4 layout, file names, skill front matter and sections, prompt scope, test files, report counts, and absence of stray files. Fixed the README tree and the Scheme skill's test instructions. All four solutions loaded silently and all 81 test cases passed.
+
+## Prompt 8 — Document the grader and test commands
+
+```text
+Fill in the "How to run (TODO)" section of the root README.md and remove "(TODO)" from its heading. List the handout's grader commands for each file (swipl -q -f 66/code/66_q1.pl -g main -t halt, an example goal for 66_q2.pl such as all_equations([4,2,5,3],E), and racket for both .rkt files, noting that they load silently and the grader appends its own calls), then how to run all tests with bash 66/tests/run_all.sh. Run the commands to confirm they work.
+```
+
+Result: Filled in the README run section and executed all five documented commands. P1 printed four solution lines, P2 returned the seven handout equations, both Racket files loaded silently, and all 81 test cases passed.

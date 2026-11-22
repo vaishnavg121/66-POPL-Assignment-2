@@ -47,4 +47,32 @@ Group ID: 66
 
 The local assignment handout lives at `handout/assignment.pdf`.
 
-## How to run (TODO)
+## How to run
+
+Run these commands from the repository root with SWI-Prolog 9.x and Racket 8.x.
+
+### Prolog
+
+P1 prints one solution. The P2 example queries `all_equations/2` and prints the returned list.
+
+```bash
+swipl -q -f 66/code/66_q1.pl -g main -t halt
+swipl -q -f 66/code/66_q2.pl -g "all_equations([4,2,5,3],E),writeq(E),nl" -t halt
+```
+
+### Racket
+
+Both files load silently. The grader appends its own function calls.
+
+```bash
+racket 66/code/66_q3.rkt
+racket 66/code/66_q4.rkt
+```
+
+### Tests
+
+Run all four test suites.
+
+```bash
+bash 66/tests/run_all.sh
+```
